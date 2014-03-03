@@ -5,6 +5,18 @@ VingleBlog::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:create]
+      resources :sessions, only: [:create, :destroy]
+      post 'sessions' => 'sessions#create'
+      delete 'sessions' => 'sessions#destroy'
+      resources :posts
+      resources :comments
+      resources :tags
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
