@@ -8,10 +8,9 @@ VingleBlog::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
-      resources :sessions, only: [:create, :destroy]
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
-      resources :posts
+      resources :posts, only: [:create, :index, :delete, :update, :show]
       resources :comments
       resources :tags
     end
