@@ -1,0 +1,1 @@
+var theBlog = angular.module('theBlog', []);
