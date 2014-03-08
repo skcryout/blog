@@ -16,6 +16,7 @@ end
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'angularjs-rails'
+gem 'normalize-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
