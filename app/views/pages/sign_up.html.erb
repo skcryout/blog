@@ -1,17 +1,17 @@
-<div id="SignUp">
-    <div class='signup_container'>
+<div id="SignUp" ng-controller='SignUpController'>
+    <form class='signup_container' ng-submit='signUp()'>
         <div class='signup_field_container'>
             <span class='signup_title'>Username</span>
-            <input class='signup_field username' type='text'>
+            <input class='signup_field username' type='text' ng-model="username">
         </div>
         <div class='signup_field_container'>
             <span class='signup_title'>Password</span>
-            <input class='signup_field password' type='password'>
+            <input class='signup_field password' type='password' ng-model="password">
         </div>
         <div class='signup_field_container'>
             <span class='signup_title'>Password Confirmation</span>
-            <input class='signup_field password_confirmation' type='password'>
+            <input class='signup_field password_confirmation' type='password' ng-model="password_confirmation">
         </div>
-        <button class='create_account_button'>Create Account</button>
-    </div>
+        <button type='submit' class='create_account_button'>Create Account</button>
+    </form>
 </div>

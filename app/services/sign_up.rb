@@ -17,28 +17,26 @@ class SignUp
 
     if @user.save
       return { 
-        statusCode: 100,
+        errorCode: 0,
         auth_token: @user.authentication_token
       }
     else
       return {
-        statusCode: -200
+        errorCode: 400
       }
     end
   end
 
   def exception_handler(params)
-    return {statusCode: -100} if params[:username].length == 0
-    return {statusCode: -101} if params[:password].length == 0
-    return {statusCode: -102} if params[:password_confirmation].length == 0
-    return {statusCode: -103} if check_username_existance(params[:username])
-    return {statusCode: -104} if params[:password] != params[:password_confirmation]
+    return {errorCode: 100} if params[:username].nil? || params[:username].length == 0
+    return {errorCode: 102} if params[:password].nil? || params[:password].length == 0
+    return {errorCode: 104} if params[:password] != params[:password_confirmation]
+    return {errorCode: 120} if check_username_existance(params[:username])
+
   end
 
   def check_username_existance(username)
-    user = User.find_by(username: username)
-
-    if user
+    if User.find_by(username: username)
       true
     else
       false
