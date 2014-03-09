@@ -10,5 +10,8 @@
  *
  *= require_self
  *= require normalize-rails
- *= require_tree .
+ *= require ./common/common
+ *= require ./common/header
+ *= require ./common/title
+ *= require_tree ./home
  */

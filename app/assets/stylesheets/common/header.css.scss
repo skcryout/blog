@@ -1,4 +1,18 @@
 #Header {
+    position: relative;
     height: 25px;
-    background-color: rgba(200, 200, 220, 0.8);
+    line-height: 25px;
+    background-color: rgba(210, 210, 210, 0.7);
+    border-bottom: 2px solid rgb(200, 60, 10);
+
+    .header_right_button_container {
+        position: absolute;
+        right: 20px;
+        
+        .header_right_button {
+            margin-left: 10px;
+            font-size: 9pt;
+            cursor: pointer;
+        }
+    }
 }

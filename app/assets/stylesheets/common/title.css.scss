@@ -1,0 +1,30 @@
+#Title {
+    border-bottom: 1px solid rgb(200, 60, 10);
+
+    .title_logo {
+        font-family: Mate;
+        font-size: 35pt;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 175px;
+    }
+
+    .title_counter {
+        width: 175px;
+        font-size: 10pt;
+        margin: 0 auto;
+        margin-top: 15px;
+        
+        text-align: center;
+    }
+
+    .title_date {
+        width: 175px;
+        font-size: 9pt;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        
+        text-align: center;
+    }
+}
