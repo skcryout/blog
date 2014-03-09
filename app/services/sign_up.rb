@@ -29,8 +29,9 @@ class SignUp
 
   def exception_handler(params)
     return {errorCode: 100} if params[:username].nil? || params[:username].length == 0
-    return {errorCode: 102} if params[:password].nil? || params[:password].length == 0
-    return {errorCode: 104} if params[:password] != params[:password_confirmation]
+    return {errorCode: 101} if params[:password].nil? || params[:password].length == 0
+    return {errorCode: 102} if params[:password].length < 6 || params[:password_confirmation].length < 6
+    return {errorCode: 103} if params[:password] != params[:password_confirmation]    
     return {errorCode: 120} if check_username_existance(params[:username])
 
   end
