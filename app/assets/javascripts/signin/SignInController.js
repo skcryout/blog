@@ -1,4 +1,4 @@
-theBlog.controller('SignInController', function($scope, $http, localStorageService) {
+theBlog.controller('SignInController', ["$scope", "$http", function($scope, $http, localStorageService) {
     $scope.signIn = function() {
         $scope.username;
         $scope.password;
@@ -26,4 +26,4 @@ theBlog.controller('SignInController', function($scope, $http, localStorageServi
             }
         });
     }
-});
+}]);
