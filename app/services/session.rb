@@ -7,21 +7,22 @@ class Session
   def create
     params = create_params
     exception = exception_handler_for_create params
+    
     return exception if exception
-
 
     user = User.find_by(username: params[:username])
 
     if BCrypt::Password.new(user[:encrypted_password]) == params[:password]
       auth_token = create_authentication_token
       user.update_attributes(authentication_token: auth_token)
+      
       return {
-        statusCode: 100,
+        errorCode: 0,
         auth_token: auth_token
       }
     else
       return {
-        statusCode: -100
+        errorCode: 400
       }
     end
   end
@@ -39,20 +40,18 @@ class Session
     if user
       user.update_attributes(authentication_token: nil)
       return {
-        statusCode: 100
+        errorCode: 0
       }
     else
       return {
-        statusCode: -100
+        errorCode: 400
       }
     end
 
   end
 
   def check_username_existance(username)
-    user = User.find_by(username: username)
-
-    if user
+    if User.find_by(username: username)
       true
     else
       false
@@ -60,13 +59,12 @@ class Session
   end
 
   def exception_handler_for_create(params)
-    return {statusCode: -101} if params[:username].length == 0
-    return {statusCode: -102} if params[:password].length == 0
-    return {statusCode: -103} if !check_username_existance(params[:username])
+    return {errorCode: 100} if params[:username].nil? || params[:username].length == 0
+    return {errorCode: 101} if params[:password].nil? || params[:password].length == 0
   end
 
   def exception_handler_for_destroy(params)
-    return {statusCode: -101} if params[:auth_token].length == 0
+    return {errorCode: 300} if (params[:auth_token].nil?)||(params[:auth_token].length == 0)
   end
 
   private

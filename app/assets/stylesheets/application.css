@@ -15,4 +15,5 @@
  *= require ./common/title
  *= require_tree ./home
  *= require_tree ./signup
+ *= require_tree ./signin
  */

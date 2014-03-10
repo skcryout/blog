@@ -13,3 +13,4 @@
 //= require angular
 //= require ./app
 //= require_tree ./signup
+//= require_tree ./signin

@@ -1,0 +1,48 @@
+#SignIn {
+    .signin_container {
+        position: relative;
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 30px;
+
+        .signin_field_container {
+            margin-bottom: 10px;
+
+            .signin_title {
+                display: inline-block;
+                width: 175px;
+                font-size: 11pt;
+                font-family: calibri;
+
+                margin-bottom: 3px;
+            }
+
+            .signin_field {
+                padding-left: 10px;
+                width: 285px;
+                height: 33px;
+                font-family: calibri;
+                letter-spacing: 1px;
+                border-radius: 5px;
+                border: 1px solid rgb(190, 10, 10);
+            }
+
+        }
+
+        .sign_in_button {
+            position: absolute;
+            right: 0px;
+
+            background-color: rgba(200, 200, 200, 0.4);
+            border-radius: 4px;
+            border: 0;
+
+            width: 95px;
+            height: 30px;
+
+            margin-top: 8px;
+
+            font-family: calibri;
+        }
+    }
+}
