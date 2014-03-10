@@ -13,5 +13,6 @@
 //= require angular
 //= require ./app
 //= require_tree ./lib
+//= require_tree ./header
 //= require_tree ./signup
 //= require_tree ./signin

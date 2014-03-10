@@ -12,6 +12,8 @@ VingleBlog::Application.routes.draw do
       resources :posts, only: [:create, :index, :delete, :update, :show]
       resources :comments
       resources :tags
+
+      get 'title' => "title#number_of_posts_and_users"
     end
   end
 
