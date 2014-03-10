@@ -1,4 +1,4 @@
-theBlog.controller('SignUpController', function($scope, $http) {
+theBlog.controller('SignUpController', function($scope, $http, localStorageService) {
     $scope.signUp = function() {
         $scope.username;
         $scope.password;
@@ -14,7 +14,9 @@ theBlog.controller('SignUpController', function($scope, $http) {
             headers: {"Content-Type": "application/json"}
         }).success(function(data) {
             if(data.errorCode == 0) {
+                localStorageService.add('auth_token', data.auth_token)
                 alert("회원가입이 완료 되었습니다.");
+                window.location = "/";
             } else if(data.errorCode == 100) {
                 alert("username을 입력해주세요.");
             } else if(data.errorCode == 101) {

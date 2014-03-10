@@ -1,1 +1,1 @@
-var theBlog = angular.module('theBlog', []);
+var theBlog = angular.module('theBlog', ['LocalStorageModule']);
