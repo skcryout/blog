@@ -1,18 +1,17 @@
 theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", function($scope, $http, localStorageService) {
-    $scope.logged_in = false;
-   
+    $scope.posts;
     $http({
-        method: 'POST',
-        url: '/api/v1/sessions/check_auth_token',
-        data: {
-            auth_token: localStorageService.get('auth_token')
-        },
+        method: 'GET',
+        url: '/api/v1/posts/' + window.location.pathname.split("/")[1],
+        data: {},
         headers: {"Content-Type": "application/json"}
     }).success(function(data) {
-        if(data.errorCode == 0) {
-            $scope.logged_in = true;
+        if(data.errorCode == -4444) {
+            alert("존재하지 않는 url입니다.");
         } else {
-            $scope.logged_in = false;
+            $scope.posts = data.posts;
         }
+        
+        
     });   
 }]);

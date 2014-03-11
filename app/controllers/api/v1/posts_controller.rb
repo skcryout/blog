@@ -21,11 +21,18 @@ class Api::V1::PostsController < ApplicationController
 
   def personal
     user = User.includes(:posts).includes(:comments).find_by(username: params[:username])
-    render :json => user.to_json(:include => { 
-        :posts => {
-        :include => :comments
+    if user
+      render :json => user.to_json(:include => { 
+          :posts => {
+          :include => :comments
+        }
+      }, :only => :id)
+    else
+      render :json => {
+        errorCode: -4444
       }
-    }, :only => :id)
+    end
+    
   end
 
   def index
