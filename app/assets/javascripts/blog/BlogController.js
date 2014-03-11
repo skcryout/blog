@@ -17,14 +17,14 @@ theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", 
         
     });
 
-    $scope.post_opinion = function(post_id) {
-    console.log($scope.opinion)     
+    $scope.post_opinion = function(post_id, opinion) {
+     
         $http({
             method: 'POST',
             url: '/api/v1/comments',
             data: {
                 post_id: post_id,
-                content: $scope.opinion
+                content: opinion
             },
             headers: {"Content-Type": "application/json"}
         }).success(function(data) {

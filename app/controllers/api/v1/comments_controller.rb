@@ -4,7 +4,7 @@ class Api::V1::CommentsController < ApplicationController
   def create
     comment = Comment.new({
       content: params[:content],
-      post_id: params[:post_id].to_i
+      post_id: params[:post_id].to_i,
       user_id: current_user.id
     })
 
