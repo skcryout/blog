@@ -10,4 +10,7 @@ class PagesController < ApplicationController
 
   def posts_new
   end
+
+  def blog
+  end
 end

@@ -3,7 +3,7 @@ VingleBlog::Application.routes.draw do
   get '/sign_up' => 'pages#sign_up'
   get '/sign_in' => 'pages#sign_in'
   get '/posts/new' => 'pages#posts_new'
-  get '/:username' => 'pages#personal_blog'
+  get '/:username' => 'pages#blog'
 
   namespace :api do
     namespace :v1 do
@@ -11,7 +11,8 @@ VingleBlog::Application.routes.draw do
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
       post 'sessions/check_auth_token' => 'sessions#check_auth_token'
-      resources :posts, only: [:create, :index, :delete, :update, :show]
+      resources :posts, only: [:create, :index, :delete, :update]
+      get 'posts/:username' => "posts#personal"
       resources :comments
       resources :tags
 
