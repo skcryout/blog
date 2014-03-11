@@ -17,3 +17,4 @@
 //= require_tree ./header
 //= require_tree ./signup
 //= require_tree ./signin
+//= require_tree ./posts

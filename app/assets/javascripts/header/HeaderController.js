@@ -27,7 +27,6 @@ theBlog.controller('HeaderController', ["$scope", "$http", "localStorageService"
         },
         headers: {"Content-Type": "application/json"}
     }).success(function(data) {
-        console.log(data);
         if(data.errorCode == 0) {
             $scope.logged_in = true;
         } else {

@@ -1,0 +1,14 @@
+<div id="PostsNew" ng-controller='PostsController'>
+    <div style='text-align: center; margin-top: 40px;'>Place your thoughts!</div>
+    <form class='post_container' ng-submit='create_post()'>
+        <div class='post_field_container'>
+            <div class='post_title'>Title</div>
+            <input class='post_field' type='text' ng-model="title">
+        </div>
+        <div class='post_field_container'>
+            <div class='post_title'>Content</div>
+            <textarea class='post_content_field' ng-model="content"></textarea>
+        </div>
+        <button type='submit' class='post_button'>Post</button>
+    </form>
+</div>

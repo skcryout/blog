@@ -1,7 +1,8 @@
 VingleBlog::Application.routes.draw do
   root 'pages#home'
-  get 'sign_up' => 'pages#sign_up'
-  get 'sign_in' => 'pages#sign_in'
+  get '/sign_up' => 'pages#sign_up'
+  get '/sign_in' => 'pages#sign_in'
+  get '/posts/new' => 'pages#posts_new'
   get '/:username' => 'pages#personal_blog'
 
   namespace :api do

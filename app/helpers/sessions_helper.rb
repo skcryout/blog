@@ -7,7 +7,7 @@ module SessionsHelper
       current_user = user
     else
       render :json => {
-        statusCode: -4444
+        errorCode: -4444
       }
     end
   end

@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def sign_in
   end
+
+  def posts_new
+  end
 end
