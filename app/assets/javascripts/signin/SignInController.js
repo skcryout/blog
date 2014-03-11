@@ -1,4 +1,4 @@
-theBlog.controller('SignInController', ["$scope", "$http", function($scope, $http, localStorageService) {
+theBlog.controller('SignInController', ["$scope", "$http", "localStorageService", function($scope, $http, localStorageService) {
     $scope.signIn = function() {
         $scope.username;
         $scope.password;
@@ -19,6 +19,8 @@ theBlog.controller('SignInController', ["$scope", "$http", function($scope, $htt
                 alert("username을 입력해주세요.");
             } else if(data.errorCode == 101) {
                 alert("password를 입력해주세요.");
+            } else if(data.errorCode == 305) {
+                alert("존재하지 않는 username입니다.");
             } else if(data.errorCode == 400) {
                 alert("username과 password가 일치하지 않습니다.");
             } else {

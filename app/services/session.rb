@@ -11,6 +11,7 @@ class Session
     return exception if exception
 
     user = User.find_by(username: params[:username])
+    return {errorCode: 305} if user.nil? 
 
     if BCrypt::Password.new(user[:encrypted_password]) == params[:password]
       auth_token = create_authentication_token
@@ -55,6 +56,19 @@ class Session
       true
     else
       false
+    end
+  end
+
+  def check_auth_token_existance
+    return {errorCode: 300} if (@params[:auth_token].nil?)||(@params[:auth_token].length == 0)
+    if User.find_by(authentication_token: @params[:auth_token])
+      return {
+        errorCode: 0
+      }
+    else
+      return {
+        errorCode: 100
+      }
     end
   end
 

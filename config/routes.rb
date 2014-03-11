@@ -9,6 +9,7 @@ VingleBlog::Application.routes.draw do
       resources :users, only: [:create]
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
+      post 'sessions/check_auth_token' => 'sessions#check_auth_token'
       resources :posts, only: [:create, :index, :delete, :update, :show]
       resources :comments
       resources :tags

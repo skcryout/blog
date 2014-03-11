@@ -1,6 +1,9 @@
-<div id="Header">
-    <div class="header_right_button_container">
+<div id="Header" ng-controller="HeaderController">
+    <div class="header_right_button_container" ng-hide="logged_in">
         <a class='header_right_button' href="/sign_in">Log In</a>
         <a class='header_right_button' href="/sign_up">Create Account</a>
+    </div>
+    <div class="header_right_button_container" ng-show="logged_in">
+        <div class='header_right_button' ng-click='logout()'>Log Out</div>
     </div>
 </div>
