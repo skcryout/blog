@@ -15,6 +15,7 @@ theBlog.controller('PostsController', ["$scope", "$http", "localStorageService",
         }).success(function(data) {
             if(data.errorCode == 0) {
                 alert("작성하신 글이 성공적으로 저장되었습니다.");
+                window.location = "/" + data.username;
             } else if(data.errorCode == -444) {
                 alert("연결에 문제가 있습니다. 관리자에게 문의 주세요.");
             } else if(data.errorCode == -4444) {

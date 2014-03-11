@@ -9,7 +9,8 @@ class Api::V1::PostsController < ApplicationController
 
     if post.save
       render :json => {
-        errorCode: 0
+        errorCode: 0,
+        username: current_user.username
       }
     else
       render :json => {
