@@ -16,8 +16,8 @@ VingleBlog::Application.routes.draw do
       resources :posts, only: [:create, :index, :delete, :update]
       get 'posts/:username' => "posts#personal"
       
-      resources :comments
-      resources :tags
+      resources :comments, only: [:create]
+      resources :tags, only: [:create]
 
       get 'title' => "title#number_of_posts_and_users"
     end
