@@ -57,6 +57,6 @@ theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", 
     }
 
     $scope.update_post = function(post_id) {
-        
+        window.location = "/posts/edit/" + post_id;
     }
 }]);

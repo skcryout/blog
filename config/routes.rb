@@ -3,7 +3,7 @@ VingleBlog::Application.routes.draw do
   get '/sign_up' => 'pages#sign_up'
   get '/sign_in' => 'pages#sign_in'
   get '/posts/new' => 'pages#posts_new'
-  get '/posts/edit' => 'pages#posts_new'
+  get '/posts/edit/:id' => 'pages#posts_new'
   get '/:username' => 'pages#blog'
 
   namespace :api do
