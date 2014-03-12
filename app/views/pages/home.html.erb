@@ -1,2 +1,6 @@
-<div id="Home">
+<div id="Home" ng-controller="HomeController">
+    <div>블로거 목록</div>
+    <div ng-repeat="user in users">            
+        <a href='/{{user.username}}'>{{user.username}}</a>
+    </div>
 </div>

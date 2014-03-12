@@ -19,3 +19,4 @@
 //= require_tree ./signin
 //= require_tree ./posts
 //= require_tree ./blog
+//= require_tree ./home
