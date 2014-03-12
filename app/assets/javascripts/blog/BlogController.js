@@ -1,5 +1,4 @@
 theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", function($scope, $http, localStorageService) {
-    
     $http({
         method: 'GET',
         url: '/api/v1/posts/' + window.location.pathname.split("/")[1],
@@ -7,7 +6,7 @@ theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", 
         headers: {"Content-Type": "application/json"}
     }).success(function(data) {
         if(data.errorCode == -4444) {
-            alert("존재하지 않는 url입니다.");
+            $scope.urlFlag = true;
         } else {
             $scope.posts = data.posts;
             if(data.posts.length == 0)

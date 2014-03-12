@@ -1,6 +1,6 @@
 <div id="Blog" ng-controller='BlogController'>
     <div ng-show='postFlag'>현재 작성된 글이 없습니다.</div>
-    
+    <div ng-show='urlFlag'>존재하지 않는 url입니다.</div>
     <div class='post_container' ng-repeat="post in posts">
         <div class='post_title'>{{post.title}}</div>
         <div clas='post_date'>{{post.created_at.split("T")[0]}}</div>
