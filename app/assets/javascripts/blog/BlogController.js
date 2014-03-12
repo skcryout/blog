@@ -37,7 +37,23 @@ theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", 
     }
 
     $scope.delete_post = function(post_id) {
-        
+        $http({
+            method: 'DELETE',
+            url: '/api/v1/posts',
+            data: {
+                post_id: post_id,
+                auth_token: localStorageService.get('auth_token')
+            },
+            headers: {"Content-Type": "application/json"}
+        }).success(function(data) {
+            if(data.errorCode == 0) {
+                alert("글이 성공적으로 지워졌습니다.");
+            } else if(data.erroCode == 10) {
+                alert("자신의 글만 지울 수 있습니다.");
+            } else {
+                alert("에러 발생!!");
+            }
+        });
     }
 
     $scope.update_post = function(post_id) {

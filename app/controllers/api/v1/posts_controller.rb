@@ -1,5 +1,5 @@
 class Api::V1::PostsController < ApplicationController
-  before_filter :authenticate, only: [:create, :delete, :update]
+  before_filter :authenticate, only: [:create, :destroy, :update]
   def create
     post = Post.new({
       title: params[:title], 
@@ -39,7 +39,22 @@ class Api::V1::PostsController < ApplicationController
 
   end
 
-  def delete
+  def destroy
+    if current_user.posts.length > 0 && current_user.posts.find(params[:post_id].to_i)
+      if current_user.posts.find(params[:post_id].to_i).destroy
+        render :json => {
+          errorCode: 0 #삭제가 잘 됨
+        }  
+      else
+        render :json => {
+          errorCode: -44 #알수 없는 에러
+        }  
+      end
+    else
+      render :json => {
+        errorCode: 10 #해당 블로그가 현재 접속중인 회원의 소유가 아닌 경우
+      }
+    end
     
   end
 

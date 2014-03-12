@@ -13,8 +13,10 @@ VingleBlog::Application.routes.draw do
       delete 'sessions' => 'sessions#destroy'
       post 'sessions/check_auth_token' => 'sessions#check_auth_token'
       
-      resources :posts, only: [:create, :index, :delete, :update]
       get 'posts/:username' => "posts#personal"
+      post 'posts' => 'posts#create'
+      delete 'posts' => 'posts#destroy'
+      
       
       resources :comments, only: [:create]
       resources :tags, only: [:create]
