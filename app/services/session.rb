@@ -62,9 +62,11 @@ class Session
 
   def check_auth_token_existance
     return {errorCode: 300} if (@params[:auth_token].nil?)||(@params[:auth_token].length == 0)
-    if User.find_by(authentication_token: @params[:auth_token])
+    user = User.find_by(authentication_token: @params[:auth_token])
+    if user
       return {
-        errorCode: 0
+        errorCode: 0,
+        username: user.username
       }
     else
       return {

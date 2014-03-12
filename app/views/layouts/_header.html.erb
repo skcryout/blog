@@ -4,6 +4,7 @@
         <a class='header_right_button' href="/sign_up">Create Account</a>
     </div>
     <div class="header_right_button_container" ng-show="logged_in">
+        <span class='header_right_button' ng-click='toMyBlog()'>My Blog</span>
         <a class='header_right_button' href="/posts/new">Create a Post</a>
         <span class='header_right_button' ng-click='logout()'>Log Out</span>
     </div>

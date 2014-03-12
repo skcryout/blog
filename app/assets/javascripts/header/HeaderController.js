@@ -14,11 +14,14 @@ theBlog.controller('HeaderController', ["$scope", "$http", "localStorageService"
                 window.location = "/";
             } else  {
                 
-            }
-                
+            }     
         });
-        
     }
+
+    $scope.toMyBlog = function() {
+        window.location = "/" + $scope.username;
+    }
+
     $http({
         method: 'POST',
         url: '/api/v1/sessions/check_auth_token',
@@ -28,6 +31,7 @@ theBlog.controller('HeaderController', ["$scope", "$http", "localStorageService"
         headers: {"Content-Type": "application/json"}
     }).success(function(data) {
         if(data.errorCode == 0) {
+            $scope.username = data.username;
             $scope.logged_in = true;
         } else {
             $scope.logged_in = false;
