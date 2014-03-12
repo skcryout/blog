@@ -8,8 +8,6 @@ class Api::V1::CommentsController < ApplicationController
       username: current_user.username
     })
 
-puts params[:poster_id]
-
     if comment.save
       render :json => {
         errorCode: 0

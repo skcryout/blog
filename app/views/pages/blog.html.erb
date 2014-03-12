@@ -3,7 +3,7 @@
         <div class='post_title'>{{post.title}}</div>
         <div clas='post_date'>{{post.created_at.split("T")[0]}}</div>
         <div class='post_content'>{{post.content}}</div>
-        <span>글 삭제</span><span>글 수정</span>
+        <span ng-click='delete_post(post.id)'>글 삭제</span><span ng-click='update_post(post.id)'>글 수정</span>
 
         <div>댓글</div>
         <div ng-repeat="comment in post.comments">            

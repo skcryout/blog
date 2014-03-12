@@ -40,7 +40,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def delete
-
+    
   end
 
   def update

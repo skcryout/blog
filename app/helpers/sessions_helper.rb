@@ -1,6 +1,7 @@
 module SessionsHelper
   def authenticate
     param = create_params_for_authentication params
+    render :json => {errorCode: -44} and return if param[:auth_token].nil? || param[:auth_token].length == 0
     user = User.find_by(authentication_token: param[:auth_token])
 
     if user
