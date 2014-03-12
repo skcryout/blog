@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   def posts_new
   end
 
+  def posts_edit
+  end
+
   def blog
   end
 end

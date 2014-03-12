@@ -25,4 +25,8 @@ theBlog.controller('PostsController', ["$scope", "$http", "localStorageService",
             }
         });
     }
+
+    $scope.update_post = function(post_id) {
+        
+    }
 }]);
