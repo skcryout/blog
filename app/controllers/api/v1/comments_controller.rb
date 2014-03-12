@@ -5,8 +5,10 @@ class Api::V1::CommentsController < ApplicationController
     comment = Comment.new({
       content: params[:content],
       post_id: params[:post_id].to_i,
-      user_id: current_user.id
+      username: current_user.username
     })
+
+puts params[:poster_id]
 
     if comment.save
       render :json => {

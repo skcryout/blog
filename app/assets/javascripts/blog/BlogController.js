@@ -1,6 +1,4 @@
 theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", function($scope, $http, localStorageService) {
-    $scope.posts;
-    $scope.opinion;
     $http({
         method: 'GET',
         url: '/api/v1/posts/' + window.location.pathname.split("/")[1],
@@ -10,15 +8,11 @@ theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", 
         if(data.errorCode == -4444) {
             alert("존재하지 않는 url입니다.");
         } else {
-            console.log(data.posts);
             $scope.posts = data.posts;
-        }
-        
-        
+        } 
     });
 
     $scope.post_opinion = function(post_id, opinion) {
-     
         $http({
             method: 'POST',
             url: '/api/v1/comments',
@@ -28,7 +22,12 @@ theBlog.controller('BlogController', ["$scope", "$http", "localStorageService", 
             },
             headers: {"Content-Type": "application/json"}
         }).success(function(data) {
-            
+            if(data.errorCode == 0) {
+                alert('댓글이 성공적으로 등록되었습니다.');
+                window.location = window.location;
+            } else {
+                alert("서버에 문제가 생겼습니다.");
+            }
         });
     }
 }]);

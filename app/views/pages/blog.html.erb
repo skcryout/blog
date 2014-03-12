@@ -3,6 +3,9 @@
         <div class='post_title'>{{post.title}}</div>
         <div clas='post_date'>{{post.created_at.split("T")[0]}}</div>
         <div class='post_content'>{{post.content}}</div>
+        <div ng-repeat="comment in post.comments">
+            <span>{{comment.username}}</span><span>{{comment.content}}</span>
+        </div>
         <form class='post_opinion_container' ng-submit='post_opinion(post.id, opinion)'>
             <input type='text' ng-model="opinion">
             <button type='submit'>댓글달기</button>
