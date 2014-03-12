@@ -3,7 +3,10 @@
         <div class='post_title'>{{post.title}}</div>
         <div clas='post_date'>{{post.created_at.split("T")[0]}}</div>
         <div class='post_content'>{{post.content}}</div>
-        <div ng-repeat="comment in post.comments">
+        <span>글 삭제</span><span>글 수정</span>
+
+        <div>댓글</div>
+        <div ng-repeat="comment in post.comments">            
             <span>{{comment.username}}</span><span>{{comment.content}}</span>
         </div>
         <form class='post_opinion_container' ng-submit='post_opinion(post.id, opinion)'>
