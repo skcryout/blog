@@ -18,7 +18,8 @@ class SignUp
     if @user.save
       return { 
         errorCode: 0,
-        auth_token: @user.authentication_token
+        auth_token: @user.authentication_token,
+        username: @user.username
       }
     else
       return {

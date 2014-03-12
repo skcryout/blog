@@ -14,7 +14,7 @@ theBlog.controller('SignInController', ["$scope", "$http", "localStorageService"
         }).success(function(data) {
             if(data.errorCode == 0) {
                 localStorageService.add('auth_token', data.auth_token);
-                window.location = "/";
+                window.location = "/" + data.username;
             } else if(data.errorCode == 100) {
                 alert("username을 입력해주세요.");
             } else if(data.errorCode == 101) {

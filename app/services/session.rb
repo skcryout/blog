@@ -19,7 +19,8 @@ class Session
       
       return {
         errorCode: 0,
-        auth_token: auth_token
+        auth_token: auth_token,
+        username: user.username
       }
     else
       return {
