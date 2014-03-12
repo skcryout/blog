@@ -41,7 +41,7 @@ class Api::V1::PostsController < ApplicationController
           :posts => {
           :include => :comments
         }
-      }, :only => :id)
+      }, :only => [:id, :username])
     else
       render :json => {
         errorCode: -4444
