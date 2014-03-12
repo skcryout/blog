@@ -14,6 +14,7 @@ VingleBlog::Application.routes.draw do
       delete 'sessions' => 'sessions#destroy'
       post 'sessions/check_auth_token' => 'sessions#check_auth_token'
       
+      get 'posts' => "posts#index"
       get 'posts/:username' => "posts#personal"
       post 'posts' => 'posts#create'
       delete 'posts' => 'posts#destroy'

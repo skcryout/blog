@@ -32,11 +32,21 @@ class Api::V1::PostsController < ApplicationController
         errorCode: -4444
       }
     end
-    
   end
 
   def index
-
+    user = User.includes(:posts).includes(:comments).all
+    if user
+      render :json => user.to_json(:include => { 
+          :posts => {
+          :include => :comments
+        }
+      }, :only => :id)
+    else
+      render :json => {
+        errorCode: -4444
+      }
+    end
   end
 
   def destroy
