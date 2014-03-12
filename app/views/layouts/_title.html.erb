@@ -1,5 +1,5 @@
 <div id='Title' ng-controller='TitleController'>
-    <div class='title_logo'>The Blog</div>
+    <a class='title_logo' href='/' style='display: block;'>The Blog</a>
     <div class='title_counter'>{{ posts }} posts written by {{ users }} users,</div>
     <div class='title_date'><%= Time.now.year.to_s + "년 " + Time.now.month.to_s + "월 " + Time.now.day.to_s + "일" %></div>
 </div> 
